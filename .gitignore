@@ -1,0 +1,32 @@
+## Editor
+*.swp
+*.swo
+Session.vim
+.cproject
+.idea
+*.iml
+.vscode
+.project
+.favorites.json
+.settings/
+
+
+## File system
+.DS_Store
+desktop.ini
+
+## Build
+/dl/
+/doc/
+/inst/
+/llvm/
+/build/
+**/dist/
+/unicode-downloads
+**/target
+/obj/
+
+## Python
+__pycache__/
+*.py[cod]
+*$py.class
