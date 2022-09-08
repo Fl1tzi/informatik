@@ -1,2 +1,1 @@
 # informatik
-Informatik Kurs Schule
