@@ -1,8 +1,7 @@
 use std::env;
 
 fn bmi_berechnen(alter: u32, groesse: u32, gewicht: u32) {
-    // das ist nur eine ungenaue Berechnung, sollte aber für die Erechnung eines bmis ausreichen
-    let bmi: f32 = (gewicht as f32)/(groesse as f32).powf(2.0);
+    let bmi: f32 = (gewicht as f32)/f32::powf(groesse as f32/100.0, 2.0);
     let normalgewicht: i32 = (groesse as i32)-100;
     let ideal_m: f32 = (normalgewicht as f32)*0.95;
     let ideal_w: f32 = (normalgewicht as f32)*0.90;
@@ -21,7 +20,7 @@ fn bmi_berechnen(alter: u32, groesse: u32, gewicht: u32) {
             _ => 24..=29
     };
 
-    println!("Dein BMI: {}", &bmi);
+    println!("Dein BMI: {} ({})", &bmi, &(bmi as u32));
     if optimaler_bmi.contains(&(bmi as u32)) {
         println!("\tJUHU. Du befindest dich in dem optimalen Bmi.")
     } else {
@@ -48,7 +47,7 @@ fn main() {
             };
             match args_to_u32() {
                 Ok(v) => bmi_berechnen(v[0], v[1], v[2]),
-                Err(_e) => println!("Du musst Zahlen angeben.")
+                Err(_e) => println!("Du musst Zahlen angeben, welche nicht kleiner als null sind.")
             }
         }
         _ => {
