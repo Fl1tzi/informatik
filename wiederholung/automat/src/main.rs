@@ -21,7 +21,6 @@ fn geldsumme_berechnen(geldsumme: u32) {
 }
 
 fn main() {
-    println!("Hello, world!");
     let args: Vec<String> = env::args().collect();
     match args.len() {
         2 => {
