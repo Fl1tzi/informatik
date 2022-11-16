@@ -79,15 +79,20 @@ fn main() {
         // Berechne die Entfernung
         if let Some(letzter_standort) = letzter_standort {
             // Berechnung der Entfernung anhand vom Seitenkosinussatz
+            let lat1 = neuer_standort.lat.to_radians();
+            let lat2 = letzter_standort.lat.to_radians();
+            let lon1 = neuer_standort.lon.to_radians();
+            let lon2 = letzter_standort.lon.to_radians();
+
             let distance = || -> f32 {
                 6378.388_f32
                 *
                 (
-                    letzter_standort.lat.sin() * neuer_standort.lat.sin()
+                    lat2.sin() * lat1.sin()
                     + 
-                    letzter_standort.lat.cos() * neuer_standort.lat.cos()
+                    lat2.cos() * lat1.cos()
                     *
-                    (neuer_standort.lon - letzter_standort.lon).cos()  
+                    (lon2 - lon1).cos()  
                 ).acos()
             };
             println!("{} -> {}: {} km", letzter_standort.name, neuer_standort.name, distance());
