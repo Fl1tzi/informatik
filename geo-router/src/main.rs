@@ -59,6 +59,7 @@ fn main() {
     let mut input = String::new();
     println!("Bitte gebe alle Städte in der richtigen Reihenfole mit einer Trennung durch ein \"/\" ein.\n");
 
+    // BERLIN (OST) / FALKENSEE / ZITTAU
     stdin().read_line(&mut input)
         .expect("Dieser String ist nicht erlaubt (kein UTF-8)");
 
@@ -95,6 +96,8 @@ fn main() {
                     (lon2 - lon1).cos()  
                 ).acos()
             };
+            // BERLIN (OST) -> FALKENSEE: 21.577534 km
+            // FALKENSEE -> ZITTAU: 220.82953 km
             println!("{} -> {}: {} km", letzter_standort.name, neuer_standort.name, distance());
         }
         // den neuen standort für die nächste iteration merken
